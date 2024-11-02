@@ -46,10 +46,10 @@ Portable-OBS.bat を作成しました。
 ## 何をやってるの
 - pdbファイルの削除
 - 不要なコンフィグディレクトリの削除
-  - config/obs-studio/plugin_config/obs-browser'
-  - config/obs-studio/crashes'
-  - config/obs-studio/profiler_data'
-  - config/obs-studio/logs'
+  - config/obs-studio/plugin_config/obs-browser
+  - config/obs-studio/crashes
+  - config/obs-studio/profiler_data
+  - config/obs-studio/logs
 - iniファイルの環境依存項目の削除
   - config/obs-studio/global.ini
     - geometry: ウィンドウ位置情報
