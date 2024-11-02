@@ -52,14 +52,18 @@ try {
     Exit
   }
   # portable_mode.txt がなければ作る
-  if (!($obsDir | Join-Path -ChildPath 'portable_mode.txt' | Test-Path)) {
+  $portable_mode_txt = $obsDir | Join-Path -ChildPath 'portable_mode.txt'
+  if (!($portable_mode_txt | Test-Path)) {
     Write-Host 'portable_mode.txt が存在しないので作成します。'
-    New-Item -Path $obsDir -Name 'portable_mode.txt' -ItemType 'file'
+    Set-Content '' -Path $portable_mode_txt
     # ついでにbatファイルを作成する？
-    $result = $Host.UI.PromptForChoice('', 'ついでにポータブルモード起動用batファイルを作成しますか？', @('&Yes', '&No'), 0)
-    if ($result -eq 0) {
-      New-Item -Path $obsDir -Name $CONST['batFilename'] -ItemType 'file' -Value $CONST['batContent']
-      Write-Host $CONST['batFilename'], ' を作成しました。'
+    $bat = $obsDir | Join-Path -ChildPath $CONST['batFilename']
+    if (!($bat | Test-Path)) {
+      $result = $Host.UI.PromptForChoice('', 'ついでにポータブルモード起動用batファイルを作成しますか？', @('&Yes', '&No'), 0)
+      if ($result -eq 0) {
+        Set-Content $CONST['batContent'] -Path $bat -Encoding 'UTF8'
+        Write-Host $CONST['batFilename'], 'を作成しました。'
+      }
     }
   }
 
@@ -128,9 +132,9 @@ try {
   $zip = $parent | Join-Path -ChildPath ($leaf + (Get-Date -Format $CONST['zipSuffixDateFormat']) + '.zip')
   Write-Host "zip圧縮しています……: ${zip}"
   if (Test-Path $zip) {
-    $result = $Host.UI.PromptForChoice('上書き確認', "zipファイルが既に存在しています。上書きしますか？", @('&Yes', '&No'), 0)
+    $result = $Host.UI.PromptForChoice('上書き確認', "zipアーカイブが既に存在しています。上書きしますか？", @('&Yes', '&No'), 0)
     if ($result -ne 0) {
-      Write-Host 'zipファイルを上書きしませんでした。'
+      Write-Host 'zipアーカイブを上書きしませんでした。'
       Exit
     }
     Remove-Item $zip -Force
