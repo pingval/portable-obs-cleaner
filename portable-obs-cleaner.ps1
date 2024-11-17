@@ -88,7 +88,7 @@ try {
   Write-Verbose($CONST['global_ini'] | Resolve-Path)
   (Get-Content -Encoding 'UTF8' $CONST['global_ini']) | foreach {
     $after = $_ -replace $CONST['global_ini_Regex'],''
-    if ($_ -ne $after) { Write-Verbose($_ + ' => ' + $after) }
+    if ($_ -ne $after) { Write-Verbose('  ' + $_ + ' => ' + $after) }
     $after
   } | Set-Content -Encoding 'UTF8' $CONST['global_ini']
   $inis = (Get-ChildItem -Recurse $CONST['profile_ini']).Fullname
@@ -96,7 +96,7 @@ try {
     Write-Verbose $ini
     (Get-Content -Encoding 'UTF8' $ini) | foreach {
       $after = $_ -replace $CONST['profile_ini_Regex'],''
-      if ($_ -ne $after) { Write-Verbose($_ + ' => ' + $after) }
+      if ($_ -ne $after) { Write-Verbose('  ' + $_ + ' => ' + $after) }
       $after
     } | Set-Content -Encoding 'UTF8' $ini
   }
@@ -115,7 +115,7 @@ try {
             $path = $args.groups[2].value | Resolve-Path -Relative
             $path = $path -replace '\\', '/'
             $after = '"'+ $args.groups[1].value + '":"' + $path  + '"'
-            Write-Verbose($args.groups[0].value + ' => ' + $after)
+            Write-Verbose('  ' + $args.groups[0].value + ' => ' + $after)
             $after
           } else {
             $args[0].value
