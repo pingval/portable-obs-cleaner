@@ -1,5 +1,6 @@
 ﻿[CmdletBinding()]
 Param([string]$obsDir)
+$VerbosePreference="Continue"
 
 Set-Variable -name CONST -option Constant -Value @{
   batFilename = 'Portable-OBS.bat'
