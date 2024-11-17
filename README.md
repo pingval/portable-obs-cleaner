@@ -108,7 +108,7 @@ zip圧縮しています……: E:\TWC2024JP-OBS-Player-2024-11-17.zip
 
 ## 何をやってるの
 - pdbファイルの削除
-- なければ`./portable_mode.txt`
+- なければ`./portable_mode.txt`の作成
   - 起動用の`./Portable-OBS.bat`の作成
 - 不要なコンフィグディレクトリの削除
   - `config/obs-studio/plugin_config/obs-browser`
