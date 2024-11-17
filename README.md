@@ -96,9 +96,7 @@ iniファイルの環境依存項目を削除しています……
 シーンコレクションの絶対パスを相対パスに置換しています……
 詳細: E:\TWC2024JP-OBS-Player\config\obs-studio\basic\scenes\TWC_1280x960_th14.json
 詳細: E:\TWC2024JP-OBS-Player\config\obs-studio\basic\scenes\TWC_640x480.json
-詳細:   "file":"E:/research/twc2024/edblocker.png" => "file":"../../../research/twc2024/edblocker.png"
-詳細:   "path":"E:/TWC2024/★自分用★TWC2024JP-OBS-Player/data/obs-plugins/frontend-tools/scripts/obstweet.lua" =>
-"path":"../../../TWC2024/★自分用★TWC2024JP-OBS-Player/data/obs-plugins/frontend-tools/scripts/obstweet.lua"
+詳細:   "file":"E:/TWC2024JP-OBS-Player/edblocker.png" => "file":"../../edblocker.png"
 詳細: E:\TWC2024JP-OBS-Player\config\obs-studio\basic\scenes\録画用.json
 zip圧縮しています……: E:\TWC2024JP-OBS-Player-2024-11-17.zip
 圧縮が完了しました。
