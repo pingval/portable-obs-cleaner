@@ -86,12 +86,16 @@ try {
   }
 
   Write-Host 'iniファイルの環境依存項目を削除しています……'
-  Write-Verbose($CONST['global_ini'] | Resolve-Path)
-  (Get-Content -Encoding 'UTF8' $CONST['global_ini']) | foreach {
-    $after = $_ -replace $CONST['global_ini_Regex'],''
-    if ($_ -ne $after) { Write-Verbose('  ' + $_ + ' => ' + $after) }
-    $after
-  } | Set-Content -Encoding 'UTF8' $CONST['global_ini']
+  # global.iniが存在しない場合エラーが発生する件への対策
+  $global_inis = (Get-ChildItem -Recurse $CONST['global_ini']).Fullname
+  foreach($ini in $global_inis) {
+    Write-Verbose $ini
+    (Get-Content -Encoding 'UTF8' $ini) | foreach {
+      $after = $_ -replace $CONST['global_ini_Regex'],''
+      if ($_ -ne $after) { Write-Verbose('  ' + $_ + ' => ' + $after) }
+      $after
+    } | Set-Content -Encoding 'UTF8' $ini
+  }
   $inis = (Get-ChildItem -Recurse $CONST['profile_ini']).Fullname
   foreach($ini in $inis) {
     Write-Verbose $ini
