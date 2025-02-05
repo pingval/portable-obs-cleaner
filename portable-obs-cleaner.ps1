@@ -19,7 +19,7 @@ Set-Variable -name CONST -option Constant -Value @{
   profile_ini = 'config/obs-studio/basic/profiles/*/basic.ini'
   profile_ini_Regex = '^RecFilePath=.*|^FilePath=.*|^FFFilePath=.*'
   scene_json = 'config/obs-studio/basic/scenes/*.json'
-  scene_json_Regex = '"(file|path|local_file|value)":"([A-Z]:[/\\].*?)"' # パスに'"'が含まれているとうまく動かない
+  scene_json_Regex = '"(file|path|local_file|value|filePath)":"([A-Z]:[/\\].*?)"' # パスに'"'が含まれているとうまく動かない
   zipSuffixDateFormat = '-yyyy-MM-dd'
 }
 
