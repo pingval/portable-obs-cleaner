@@ -1,4 +1,4 @@
-﻿[CmdletBinding()]
+[CmdletBinding()]
 Param([string]$obsDir)
 $VerbosePreference="Continue"
 
@@ -15,7 +15,7 @@ Set-Variable -name CONST -option Constant -Value @{
                  'config/obs-studio/logs')
   bin64bitDir = 'bin/64bit'
   global_ini = 'config/obs-studio/global.ini'
-  global_ini_Regex = '^geometry=.*'
+  global_ini_Regex = '^Language=.*|^geometry=.*'
   profile_ini = 'config/obs-studio/basic/profiles/*/basic.ini'
   profile_ini_Regex = '^RecFilePath=.*|^FilePath=.*|^FFFilePath=.*'
   scene_json = 'config/obs-studio/basic/scenes/*.json'
