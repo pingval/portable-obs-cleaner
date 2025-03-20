@@ -115,6 +115,7 @@ zip圧縮しています……: E:\TWC2024JP-OBS-Player-2024-11-17.zip
   - `config/obs-studio/logs`
 - iniファイルの環境依存項目の削除
   - `config/obs-studio/global.ini`
+    - `Language`: 表示言語
     - `geometry`: ウィンドウ位置情報
   - `config/obs-studio/basic/profiles/*/basic.ini`
     - `FilePath`: 出力モード基本の録画ファイルパス
